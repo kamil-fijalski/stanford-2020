@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         HStack {
-            ForEach(viewModel.cards) { card in
+            ForEach(viewModel.cards.shuffled()) { card in
                 CardView(card: card).onTapGesture {
                     self.viewModel.choose(card: card)
                 }
@@ -21,6 +21,7 @@ struct ContentView: View {
         }
             .padding()
             .font(Font.largeTitle)
+            .fixedSize(horizontal: false, vertical: true)
             .foregroundColor(Color.orange)
     }
 }
